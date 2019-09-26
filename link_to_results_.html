@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles//result_links.css') }}"
+  </head>
+  <body>
+
+    <div align="center" class="button_box2">
+    <form action = "http://localhost:5000/result_links" method = "POST" class="form-wrapper-2 cf">
+
+    <input type="text" name="query" placeholder="What type of pet do you want?" required></input>
+    <button type="submit">Search</button>
+    </>
+    <form action = "http://localhost:5000/result_links" method = "POST">
+    <input type="checkbox" name="location_search" value="True">Search By Location</input>
+    </form>
+    </div>
+
+    {% for name in names %}
+      <div class="link_to_doc">
+        <a href="/display_doc/{{name[0]}}">{{name[1][:130]}}...</a></br>
+      </div>
+    {% endfor %}
+  </body>
+</html>

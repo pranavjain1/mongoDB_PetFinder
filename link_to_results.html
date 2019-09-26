@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8"  />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/result_links.css') }}">
+  </head>
+  <body>
+<div id="change_class" class="flex_container section menu_section">
+	<div class="flex_item branding"><p></p></div>
+</div>
+
+<div class="section page header_section">
+	<div class="gradient gradient_red_blue gradient_header_section"></div>
+		<div class="section_container header_section_container flex_container flex_header_container">
+			<div class="text header_text">
+			<h1>Pet Finder</h1>
+			</div>
+			<div class="text body_text flex_item flex_header_item">
+				<div align="center" class="button_box2">
+          <form action = "http://localhost:5000/result_links" method = "POST" class="form-wrapper-2 cf">
+          <input type="text" name="query" placeholder="What type of pet do you want?" required></input>
+          <button type="submit">Search</button>
+          <input type="checkbox" name="location_search" value="True">Search By Location</input>
+          </>
+				</div>
+			</div>
+		</div>
+</div>
+    {% for name in names %}
+      <div class="link_to_doc">
+        <a href="/display_doc/{{name[0]}}">{{name[1][:130]}}...</a></br>
+      </div>
+    {% endfor %}
+  </body>
+</html>
